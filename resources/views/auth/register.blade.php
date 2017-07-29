@@ -17,8 +17,15 @@
               <div class="container">
                   <div class="nav-wrapper">
                       <a href="/" class="brand-logo">Cove</a>
-                      <ul id="nav-mobile" class="right hide-on-med-and-down">
-                          <li><a href="/">Home</a></li>
+                      <ul id="nav-mobile" class="right">
+                          @if (Route::has('login'))
+                              @if (Auth::check())
+                                <li><a href="{{ url('/home') }}">Home</a></li>
+                              @else
+                                <li><a href="{{ url('/login') }}">Login</a></li>
+                                <li><a href="{{ url('/register') }}">Register</a></li>
+                              @endif
+                          @endif
                       </ul>
                   </div>
               </div>
