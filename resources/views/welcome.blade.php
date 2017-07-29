@@ -15,7 +15,6 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
                 height: 100vh;
                 margin: 0;
             }
@@ -48,33 +47,32 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
         </style>
     </head>
     <body>
+        <div class="navbar-fixed">
+            <nav>
+              <div class="container">
+                  <div class="nav-wrapper">
+                      <a href="/" class="brand-logo">Cove</a>
+                      <ul id="nav-mobile" class="right">
+                          @if (Route::has('login'))
+                              @if (Auth::check())
+                                <li><a href="{{ url('/home') }}">Home</a></li>
+                              @else
+                                <li><a href="{{ url('/login') }}">Login</a></li>
+                                <li><a href="{{ url('/register') }}">Register</a></li>
+                              @endif
+                          @endif
+                      </ul>
+                  </div>
+              </div>
+            </nav>
+        </div>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
 
             <div class="content">
                 <div class="title m-b-md">
