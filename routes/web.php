@@ -19,5 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Admin side
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+//Users
 Route::get('/admin/users', 'AdminController@users')->name('users');
+
+//Groups
+Route::get('/admin/groups', 'AdminController@groups')->name('groups');
+//Create new Group
+Route::post('/admin/groups', 'AdminController@new_group')->name('new_group');

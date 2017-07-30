@@ -65,7 +65,7 @@
                   <p>Lorem Ipsum Dolor Sit Amet.</p>
                 </div>
                 <div class="card-action">
-                  <a href="#">Manage</a>
+                  <a href="{{ url('/admin/groups') }}">Manage</a>
                 </div>
               </div>
             </div>
