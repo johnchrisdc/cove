@@ -46,41 +46,25 @@
         <div class="container">
           <div class="row">
 
-            <div class="col s12 m6 l4">
-              <div class="card grey darken-3">
-                <div class="card-content white-text">
-                  <span class="card-title">Users</span>
-                  <p>Lorem Ipsum Dolor Sit Amet.</p>
-                </div>
-                <div class="card-action">
-                  <a href="{{ url('/admin/users') }}">Manage</a>
-                </div>
-              </div>
-            </div>
+            <table>
+              <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Group</th>
+                </tr>
+              </thead>
 
-            <div class="col s12 m6 l4">
-              <div class="card light-blue darken-4">
-                <div class="card-content white-text">
-                  <span class="card-title">Groups</span>
-                  <p>Lorem Ipsum Dolor Sit Amet.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">Manage</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-              <div class="card teal darken-3">
-                <div class="card-content white-text">
-                  <span class="card-title">Posts</span>
-                  <p>Lorem Ipsum Dolor Sit Amet.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">Manage</a>
-                </div>
-              </div>
-            </div>
+              <tbody>
+                @foreach($users as $user)
+                  <tr>
+                    <td>{{ $user->firstname . ", " . $user->lastname }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td></td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
 
           </div>
         </div>
