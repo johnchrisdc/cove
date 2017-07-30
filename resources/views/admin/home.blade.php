@@ -45,29 +45,43 @@
 
         <div class="container">
           <div class="row">
+
             <div class="col s12 m6 l4">
-              <div class="card-panel teal">
-                <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                </span>
+              <div class="card grey darken-3">
+                <div class="card-content white-text">
+                  <span class="card-title">Users</span>
+                  <p>Lorem Ipsum Dolor Sit Amet.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">Manage</a>
+                </div>
               </div>
             </div>
 
             <div class="col s12 m6 l4">
-              <div class="card-panel teal">
-                <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                </span>
+              <div class="card light-blue darken-4">
+                <div class="card-content white-text">
+                  <span class="card-title">Groups</span>
+                  <p>Lorem Ipsum Dolor Sit Amet.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">Manage</a>
+                </div>
               </div>
             </div>
 
             <div class="col s12 m6 l4">
-              <div class="card-panel teal">
-                <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                </span>
+              <div class="card teal darken-3">
+                <div class="card-content white-text">
+                  <span class="card-title">Posts</span>
+                  <p>Lorem Ipsum Dolor Sit Amet.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">Manage</a>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
     </body>
