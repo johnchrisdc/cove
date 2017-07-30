@@ -45,6 +45,7 @@
 
             .title {
                 font-size: 84px;
+                font-weight: 100;
             }
 
             .m-b-md {
@@ -62,6 +63,7 @@
                           @if (Route::has('login'))
                               @if (Auth::check())
                                 <li><a href="{{ url('/home') }}">Home</a></li>
+                                <li><a href="{{ url('/admin') }}">Admin</a></li>
                               @else
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="{{ url('/register') }}">Register</a></li>
@@ -76,7 +78,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Cove
+                    The Cove
                 </div>
             </div>
         </div>
