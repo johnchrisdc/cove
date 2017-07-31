@@ -52,6 +52,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Group</th>
+                    <th>Action</th>
                 </tr>
               </thead>
 
@@ -60,7 +61,21 @@
                   <tr>
                     <td>{{ $user->firstname . ", " . $user->lastname }}</td>
                     <td>{{ $user->email }}</td>
-                    <td></td>
+                    <td>
+                      @if ($user->getGroup() != null)
+                        {{ $user->getGroup()->name }}
+                      @endif
+                    </td>
+                    <td>
+                      <form method="POST" action="{{ Route('make_leader', $user->id) }}">
+                        {{ csrf_field() }}
+                        @if(!$user->is_leader)
+                          <button class="btn waves-effect waves-light green darken-1" type="submit" name="action">Make leader</button>
+                        @else
+                          <button class="btn waves-effect waves-light red darken-1" type="submit" name="action">Remove leader</button>
+                        @endif
+                      </form>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>

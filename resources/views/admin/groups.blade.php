@@ -62,8 +62,12 @@
                   @foreach($groups as $group)
                     <tr>
                       <td>{{ $group->name }}</td>
-                      <td>{{ $group->leader->getName() }}</td>
-                      <td></td>
+                      <td>
+                        @if ($group->leader != null)
+                          {{ $group->leader->getName() }}
+                        @endif
+                      </td>
+                      <td>{{ $group->members_count }}</td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -87,7 +91,7 @@
             <div class="row">
               <div class="input-field col s12 m6">
                 <select name="leader_id">
-                  <option value="" disabled selected>Choose your option</option>
+                  <option value="" disabled selected>Choose from leaders</option>
                   @foreach($users as $user)
                       <option value="{{ $user->id }}">{{ $user->firstname . ", " . $user->lastname }}</option>
                   @endforeach

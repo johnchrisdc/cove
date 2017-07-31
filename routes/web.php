@@ -29,3 +29,7 @@ Route::get('/admin/users', 'AdminController@users')->name('users');
 Route::get('/admin/groups', 'AdminController@groups')->name('groups');
 //Create new Group
 Route::post('/admin/groups', 'AdminController@new_group')->name('new_group');
+
+//Leader
+//Make a user a leader
+Route::post('/admin/leader/{user_id}', 'AdminController@make_leader')->name('make_leader');

@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_leader')->default(false);
+            $table->integer('group_id')->default(-1);
         });
     }
 

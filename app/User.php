@@ -31,4 +31,8 @@ class User extends Authenticatable
         return $this->firstname . ', ' . $this->lastname;
     }
 
+    public function getGroup() {
+        $group = Group::where('id', $this->group_id)->first();
+        return $group;
+    }
 }

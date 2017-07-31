@@ -30,10 +30,13 @@ class AdminController extends Controller
 
     public function groups() {
       $groups = Group::all();
-      $users = User::all();
+      $users = User::where('is_leader', true)
+                      ->where('group_id', -1)
+                      ->get();
 
       foreach ($groups as $group) {
           $group->getLeader();
+          $group->getGroupMembersCount();
       }
 
       return view('admin.groups', ['groups' => $groups, 'users' => $users]);
@@ -46,8 +49,11 @@ class AdminController extends Controller
             'description' => 'max:255'
         ]);
 
-        $user = User::where('id', 79)->first();
+        $user = User::where('id', $request->leader_id)->first();
         if ($user == null) {
+            return Redirect::back()->withErrors("Invalid user");
+        }
+        if ($user->group_id != -1) {
             return Redirect::back()->withErrors("Invalid user");
         }
 
@@ -58,8 +64,31 @@ class AdminController extends Controller
 
         $group->save();
 
-
+        $user->group_id = $group->id;
+        $user->save();
 
         return redirect('admin/groups');
+    }
+
+    public function make_leader($user_id) {
+        $user = User::where('id', $user_id)->first();
+
+        if ($user == null) {
+            return Redirect::back()->withErrors("Invalid user");
+        }
+
+        $user->is_leader = !$user->is_leader;
+
+        if (!$user->is_leader) {
+            $group = Group::find($user->group_id);
+            if ($group != null) {
+              $group->leader_id = 0;
+              $group->save();
+            }
+        }
+        
+        $user->save();
+
+        return Redirect::back();
     }
 }
